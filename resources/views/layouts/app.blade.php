@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Homepage</title>
-		<link rel="stylesheet" href="/css/styles.css">
-		<script src="/js/jquery.ba-throttle-debounce.js"></script>
-		<script src="/js/patternizer.js"></script>
-	</head>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Anna portfolio') }}</title>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+</head>
 	<body>
-		<canvas id="bgCanvas"></canvas>
-		<div class="wrapper">
-			<div class="content-wrapper">
-				<!-- Content here -->
-			</div>
-		</div>
+
+    @yield('content')
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+		<script src="{{ asset('js/patternizer.js') }}"></script>
+
 		<script type="text/javascript">
 		var bgCanvas = document.getElementById('bgCanvas');
 
@@ -61,7 +68,6 @@
 				var buffer = 100;
 
 				// var bgCanvas = document.getElementById('bgCanvas');
-
 
 				// if extra canvas size is less than the buffer amount
 				// console.log(bgCanvas);
