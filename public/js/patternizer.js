@@ -140,3 +140,70 @@
      return this;
    };
  }
+
+ $(document).ready(function() {
+
+	 var bgCanvas = document.getElementById('bgCanvas');
+
+	 function render() {
+
+			 bgCanvas.patternizer({
+					 stripes : [
+							 {
+									 color: '#4ba894',
+									 rotation: 315,
+									 opacity: 60,
+									 mode: 'normal',
+									 width: 7,
+									 gap: 9,
+									 offset: 0
+							 },
+							 {
+									 color: '#4362a7',
+									 rotation: 45,
+									 opacity: 80,
+									 mode: 'normal',
+									 width: 2,
+									 gap: 12,
+									 offset: 0
+							 },
+							 {
+									 color: '#541c7a',
+									 rotation: 0,
+									 opacity: 50,
+									 mode: 'plaid',
+									 width: 10,
+									 gap: 10,
+									 offset: 0
+							 }
+					 ],
+					 bg : '#ffffff'
+			 });
+
+	 }
+
+	 // resize the canvas to the window size
+	 function onResize() {
+
+			 // number of pixels of extra canvas drawn
+			 var buffer = 100;
+
+			 // if extra canvas size is less than the buffer amount
+			 // console.log(bgCanvas);
+			 if (bgCanvas.width - window.innerWidth < buffer ||
+					 bgCanvas.height - window.innerHeight < buffer) {
+
+					 // resize the canvas to window plus double the buffer
+					 bgCanvas.width = window.innerWidth + (buffer * 2);
+					 bgCanvas.height = window.innerHeight + (buffer * 2);
+
+					 render();
+			 }
+
+	 }
+
+	 function init() {
+			 onResize();
+	 }
+	 init();
+ });
