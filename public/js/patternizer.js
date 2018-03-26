@@ -87,7 +87,6 @@
        for ( var i=0; i < repeats; i++ ) {
 
          if ( patternizer.isArray(color) ) {
-           // I'm hoping its an array of colors
 
            var startStripe = (tile * i) + offset,
              endStripe = (tile * i) + offset + stripeWidth,
@@ -152,28 +151,28 @@
 							 {
 									 color: '#4ba894',
 									 rotation: 315,
-									 opacity: 60,
+									 opacity: 50,
 									 mode: 'normal',
-									 width: 7,
-									 gap: 9,
+									 width: 21,
+									 gap: 27,
 									 offset: 0
 							 },
 							 {
 									 color: '#4362a7',
 									 rotation: 45,
-									 opacity: 80,
+									 opacity: 70,
 									 mode: 'normal',
-									 width: 2,
-									 gap: 12,
+									 width: 6,
+									 gap: 36,
 									 offset: 0
 							 },
 							 {
 									 color: '#541c7a',
 									 rotation: 0,
-									 opacity: 50,
+									 opacity: 55,
 									 mode: 'plaid',
-									 width: 10,
-									 gap: 10,
+									 width: 30,
+									 gap: 30,
 									 offset: 0
 							 }
 					 ],
