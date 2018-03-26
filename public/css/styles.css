@@ -1,3 +1,6 @@
+body {
+	font-family: 'Cinzel Decorative', cursive, serif;
+}
 
 #bgCanvas {
     position: relative;
@@ -15,28 +18,43 @@
 
 .content-wrapper {
 		height: 100%;
-		background-color: #f2f2f2;
+		background-color: #fff;
 }
 
 .cubes {
 	height: 100%;
 	background-color: #fff;
 	text-align: center;
-
+	font-size: 2em;
+	font-weight: bolder;
 }
 
 .cube {
 	height: calc(100% / 3);
+	background-color: rgb(218, 218, 218);
+}
+
+.homecube {
+	background-color: rgb(240, 240, 240);
 }
 
 .colorcube {
-	background-color: rgba(75, 168, 148, 1);
+	background-color: rgb(117, 183, 173);
+}
+
+.introcube {
+	background-color: rgb(128, 60, 153);
 }
 
 .photocube {
-	background-color: rgba(84, 28, 122, 1);
+	background-color: rgb(35, 56, 122);
+	color: rgb(218, 218, 218);
 }
 
 .contactcube {
-	background-color: rgba(67, 98, 167, 1);
+	background-color: rgb(164, 126, 178);
+}
+
+div {
+	color: #25307E;
 }

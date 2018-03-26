@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Anna portfolio') }}</title>
 
     <!-- Styles -->
+		<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 		<link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 </head>
