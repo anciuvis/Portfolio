@@ -1,5 +1,5 @@
 body {
-	font-family: 'Cinzel Decorative', cursive, serif;
+	font-family: 'Cinzel Decorative', serif;
 }
 
 #bgCanvas {
@@ -25,13 +25,17 @@ body {
 	height: 100%;
 	background-color: #fff;
 	text-align: center;
-	font-size: 2em;
+	font-size: 1.6em;
 	font-weight: bolder;
 }
 
 .cube {
 	height: calc(100% / 3);
 	background-color: rgb(218, 218, 218);
+}
+.cube a {
+	text-decoration: none;
+	color: #25307E;
 }
 
 .homecube {
@@ -44,11 +48,14 @@ body {
 
 .introcube {
 	background-color: rgb(128, 60, 153);
+	color: rgb(164, 126, 178);
 }
 
 .photocube {
 	background-color: rgb(35, 56, 122);
-	color: rgb(218, 218, 218);
+}
+.photocube a {
+	color: rgb(164, 126, 178);
 }
 
 .contactcube {
