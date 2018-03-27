@@ -54,6 +54,7 @@ body {
 .photocube {
 	background-color: rgb(35, 56, 122);
 }
+
 .photocube a {
 	color: rgb(164, 126, 178);
 }
@@ -64,4 +65,8 @@ body {
 
 div {
 	color: #25307E;
+}
+
+.icon {
+	font-weight: normal;
 }
