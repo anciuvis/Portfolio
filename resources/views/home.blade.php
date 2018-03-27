@@ -8,10 +8,12 @@
 					<div class="col-xs-12 col-sm-6 col-md-4 cube homecube d-flex align-items-center justify-content-center p-3">
 						<a href="/">The portfolio</a>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-4 cube d-flex align-items-center justify-content-center p-3">
-						<a href="/">
-							<i class="fas fa-user-circle fa-2x"></i>
-							About me
+					<div class="col-xs-12 col-sm-6 col-md-4 cube d-flex align-items-center justify-content-center p-3" id="gradient">
+						<a href="/" class="hvr-back-pulse">
+							ABOUT ME
+							<div class="">
+								<i class="fas fa-user-circle fa-2x hvr-back-pulse"></i>
+							</div>
 						</a>
 					</div>
 					<div class="col-sm-6 col-md-4 p-0 cube colorcube d-none d-sm-block">
@@ -22,7 +24,9 @@
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-4 p-0 cube photocube d-flex align-items-center justify-content-center p-3">
 						<a href="/">
-							<i class="fas fa-camera-retro fa-2x"></i>
+							<div class="">
+								<i class="fas fa-camera-retro fa-2x hvr-buzz-out"></i>
+							</div>
 							My Photos
 						</a>
 					</div>
@@ -31,22 +35,29 @@
 					</div>
 					<div class="col-md-4 p-0 cube colorcube d-none d-md-block">
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-4 p-0 cube contactcube d-flex align-items-center justify-content-center p-3">
-						<div class="">
-							<i class="fas fa-paper-plane fa-2x"></i>
-						</div>
-
-						Contacts
+					<div class="col-xs-12 col-sm-6 col-md-4 p-0 cube contactcube d-flex align-items-center justify-content-around p-3">
+						<a href="/">
+							<div class="">
+								<i class="fas fa-paper-plane fa-2x hvr-bob"></i>
+							</div>
+							Contacts
+						</a>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-4 p-0 cube d-flex flex-column justify-content-center p-3">
+					<div class="col-xs-12 col-sm-6 col-md-4 p-0 cube socialcube d-flex flex-column justify-content-around p-3">
 						<div>Social networks</div>
 						<div class="d-flex justify-content-between flex-row">
 							<a href="https://www.facebook.com/anchiukas">
-								<i class="fab fa-facebook-square fa-2x icon"></i>
+								<i class="fab fa-facebook-square fa-2x hvr-wobble-horizontal"></i>
 							</a>
-							<i class="fab fa-github-alt fa-2x icon"></i>
-							<i class="fab fa-instagram fa-2x icon"></i>
-							<i class="fab fa-linkedin fa-2x icon"></i>
+							<a href="https://github.com/anciuvis">
+								<i class="fab fa-github-alt fa-2x hvr-wobble-horizontal"></i>
+							</a>
+							<a href="https://www.instagram.com/anchiuvis/?hl=en">
+								<i class="fab fa-instagram fa-2x hvr-wobble-horizontal"></i>
+							</a>
+							<a href="https://www.linkedin.com/in/anna-yasyreva-a988648/">
+								<i class="fab fa-linkedin fa-2x hvr-wobble-horizontal"></i>
+							</a>
 						</div>
 					</div>
 				</section>
