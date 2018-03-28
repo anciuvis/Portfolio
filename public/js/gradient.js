@@ -1,5 +1,3 @@
-var $div = document.getElementById("gradient");
-$div.addEventListener("mouseenter", function ($div) {
 	// target to give background to
 	var $div = document.getElementById("gradient");
 
@@ -103,14 +101,3 @@ $div.addEventListener("mouseenter", function ($div) {
 
 	// go go go!
 	window.requestAnimationFrame(updateGradient);
-}, false);
-
-$div.addEventListener("mouseleave", function( event ) {
-    // highlight the mouseleave target
-    event.target.style.color = "purple";
-
-    // reset the color after a short delay
-    setTimeout(function() {
-      event.target.style.color = "rgb(218, 218, 218)";
-    }, 500);
-  }, false);
