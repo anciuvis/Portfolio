@@ -8,7 +8,7 @@
 					<div class="col-xs-12 col-sm-6 col-md-4 cube homecube d-flex align-items-center justify-content-center p-3">
 						<a href="/">The portfolio</a>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-4 cube d-flex align-items-center justify-content-center p-3" id="gradient">
+					<div class="col-xs-12 col-sm-6 col-md-4 cube d-flex align-items-center justify-content-center p-3">
 						<a href="/" class="hvr-back-pulse">
 							ABOUT ME
 							<div class="">
