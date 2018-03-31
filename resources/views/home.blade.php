@@ -9,8 +9,8 @@
 						<a href="/">The portfolio</a>
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-4 cube aboutcube d-flex align-items-center justify-content-center p-3">
-						<a href="/" class="">
-							<i class="fas fa-user-circle fa-2x p-3 scale hvr-back-pulse"></i>
+						<a href="{{ route('about') }}" class="">
+							<i class="fas fa-user-circle fa-2x p-3 scale hvr-back-pulse p-3"></i>
 							<br />
 							ABOUT ME
 						</a>
@@ -34,7 +34,7 @@
 					<div class="col-md-4 p-0 cube colorcube d-none d-md-block">
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-4 cube contactcube d-flex flex-column justify-content-around p-3">
-						<a href="/" class="d-flex flex-column justify-content-between">
+						<a href="{{ route('contact') }}" class="d-flex flex-column justify-content-between">
 							<i class="fas fa-paper-plane fa-2x hvr-bob p-3"></i>
 							<br />
 							Contacts
