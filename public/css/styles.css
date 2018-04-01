@@ -400,4 +400,27 @@ div {
 
 #gradient {
   background: rgb(218, 218, 218);
+	font-size: 2rem;
+}
+
+#gradient div, #gradient img {
+	color: rgb(0, 0, 0);
+}
+
+.cover-letter {
+	font-family: 'Crimson Text', serif;
+	font-size: 1.1rem;
+}
+
+.about-photo {
+	background-color: rgb(240, 240, 240);
+}
+
+.about-intro {
+	background-color: rgb(218, 218, 218);
+	
+}
+
+.about {
+	background-color: rgba(117, 183, 173, 0.4);
 }
