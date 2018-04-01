@@ -20,3 +20,6 @@ Route::get('/about', 'AboutController@index')->name('about');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('tags', 'TagController');
+Route::resource('photos', 'PhotoController');
