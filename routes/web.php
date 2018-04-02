@@ -23,4 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('tags', 'TagController');
 Route::resource('photos', 'PhotoController');
-Route::resource('phototags', 'PhotoTagController');
+Route::resource('photos_tags', 'PhotosTagController');

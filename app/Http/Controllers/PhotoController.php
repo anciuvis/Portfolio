@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Photo;
 use App\Tag;
-use App\PhotoTag;
+use App\PhotosTag;
 use Illuminate\Http\Request;
 
 class PhotoController extends Controller
@@ -66,12 +66,20 @@ class PhotoController extends Controller
 			// public/dishes/*****
 			// reikia dar php artisan storage:link irasyti, dirbant su storagu - sukuria SYMLINKa
 			$path = str_replace('public', '/storage', $path);
+
 			$photo = new Photo();
 			$photo->title = $request->title;
 			$photo->description = $request->description;
 			$photo->img_url = $path;
 			// $request->image_url pakeisti i $path kad butu failo ikelimas i duombaze
 			$photo->save();
+
+			foreach ($request->tags as $id) {
+				$phototag = new Photostag();
+				$phototag->tag_id = $id;
+				$phototag->photo_id = $photo->id;
+				$phototag->save();
+			}
 			return redirect()->route('home');
     }
 

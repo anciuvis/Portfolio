@@ -2,21 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\PhotoTag;
+use App\PhotosTag;
 use Illuminate\Http\Request;
 
-class PhotoTagController extends Controller
+class PhotosTagController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-		public function __construct() {
- 			$this->middleware('admin')->except('index', 'show');
- 		}
-
     public function index()
     {
         //
@@ -46,10 +41,10 @@ class PhotoTagController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\PhotoTag  $photoTag
+     * @param  \App\PhotosTag  $photosTag
      * @return \Illuminate\Http\Response
      */
-    public function show(PhotoTag $photoTag)
+    public function show(PhotosTag $photosTag)
     {
         //
     }
@@ -57,10 +52,10 @@ class PhotoTagController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\PhotoTag  $photoTag
+     * @param  \App\PhotosTag  $photosTag
      * @return \Illuminate\Http\Response
      */
-    public function edit(PhotoTag $photoTag)
+    public function edit(PhotosTag $photosTag)
     {
         //
     }
@@ -69,10 +64,10 @@ class PhotoTagController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PhotoTag  $photoTag
+     * @param  \App\PhotosTag  $photosTag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PhotoTag $photoTag)
+    public function update(Request $request, PhotosTag $photosTag)
     {
         //
     }
@@ -80,10 +75,10 @@ class PhotoTagController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PhotoTag  $photoTag
+     * @param  \App\PhotosTag  $photosTag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PhotoTag $photoTag)
+    public function destroy(PhotosTag $photosTag)
     {
         //
     }
