@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
+<div class="d-block mx-2 mb-2 w-100">
+	<a href="{{ route('photos.index') }}"><button class="btn btn-dark">Back</button></a>
+</div>
 	<div class="container w-75">
-		<div class="mb-3">
-			<a href="/"><button class="btn btn-warning">Back</button></a>
-		</div>
 		<h2 class="text-center">Create Photo form</h2>
 		<form action="{{ route('photos.store') }}" method="POST" class="needs-validation" enctype="multipart/form-data">
 			@csrf
@@ -34,7 +34,22 @@
 				</div>
 				@endif
 			</div>
+			<div class="form-group">
+				<label class="px-3">Tags</label>
+					@foreach($tags as $tag)
+					<div class="form-check">
+						<input type="checkbox" class="form-check-input" id="{{ $tag->id }}">
+						<label class="form-check-label" for="{{ $tag->id }}">{{ $tag->title }}</label>
+					</div>
+					@endforeach
+			</div>
 			<button type="submit" class="btn btn-primary">Create Photo</button>
 		</form>
 	</div>
+	<!-- Scripts -->
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+	<script src="{{ asset('js/tagsinput.js') }}"></script>
 @endsection

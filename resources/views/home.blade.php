@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+@Auth
+	</div>
+@endif
 		<div class="wrapper">
 			<div class="content-wrapper p-3">
 				<section class="cubes row m-0">
@@ -22,7 +24,7 @@
 						I am Anna Yasyreva and this is my portfolio website
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-4 p-0 cube photocube d-flex align-items-center justify-content-center p-3">
-						<a href="/" class="d-flex flex-column justify-content-between">
+						<a href="{{ route('photos.index') }}" class="d-flex flex-column justify-content-between">
 							<i class="fas fa-camera-retro fa-2x hvr-buzz-out p-3"></i>
 							<br />
 								My Photos
@@ -63,5 +65,9 @@
 		<!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 		<!-- to generate textured pattern canvas -->
+		<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
 		<script src="{{ asset('js/patternizer.js') }}"></script>
 @endsection
