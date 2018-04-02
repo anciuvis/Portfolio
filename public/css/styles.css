@@ -101,6 +101,14 @@ div {
 	color: rgb(128, 60, 153);
 }
 
+.captiongradient {
+	background: -moz-radial-gradient(center, ellipse cover, rgba(155,155,155,0.7) 0%, rgba(214,214,214,0) 68%);
+background: -webkit-radial-gradient(center, ellipse cover, rgba(155,155,155,0.7) 0%,rgba(214,214,214,0) 68%);
+background: radial-gradient(ellipse at center, rgba(155,155,155,0.7) 0%,rgba(214,214,214,0) 68%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b39b9b9b', endColorstr='#00d6d6d6',GradientType=1 );
+color: rgb(0, 0, 0);
+}
+
 /*!
  * Hover.css (http://ianlunn.github.io/Hover/)
  * Version: 2.3.0
@@ -400,7 +408,9 @@ div {
 
 #gradient {
   background: rgb(218, 218, 218);
-	font-size: 2rem;
+	color: rgb(0, 0, 0);
+	font-size: 1.5rem;
+	/* position: relative; */
 }
 
 #gradient div, #gradient img {
@@ -418,9 +428,16 @@ div {
 
 .about-intro {
 	background-color: rgb(218, 218, 218);
-	
+	border-bottom: 3px dashed rgba(133,126,140,0.75);
+	border-right: 3px dashed rgba(133,126,140,0.75);
+	-webkit-border-radius: 0px 0px 30px 0px;
+	border-radius: 0px 0px 30px 0px;
 }
 
 .about {
 	background-color: rgba(117, 183, 173, 0.4);
+}
+
+.back-anchor {
+	/* position: absolute; */
 }

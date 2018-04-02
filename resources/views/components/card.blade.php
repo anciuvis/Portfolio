@@ -10,14 +10,14 @@
 	</li>
 	@component('components/edit', [
 		'id' 		=> $photo->id,
-		'name'	=> 'Edit Photo',
+		'name'	=> 'Edit',
 		'route'		=> 'photos.edit',
 		'users'  => ['admin']
 	])
 	@endcomponent
 	@component('components/delete', [
 		'id' 		=> $photo->id,
-		'name'	=> 'Delete Photo',
+		'name'	=> 'Delete',
 		'route'		=> 'photos.destroy',
 		'users'  => ['admin']
 	])

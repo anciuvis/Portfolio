@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Photo;
+use App\Tag;
+use App\PhotoTag;
 use Illuminate\Http\Request;
 
 class PhotoController extends Controller
@@ -31,7 +33,11 @@ class PhotoController extends Controller
      */
     public function create()
     {
-      return view('photo/create');
+			$tags = Tag::all();
+      return view('photo/create', [
+				'tags' => $tags,
+			]);
+
     }
 
 		private function validation(Request $request) {
@@ -60,11 +66,6 @@ class PhotoController extends Controller
 			// public/dishes/*****
 			// reikia dar php artisan storage:link irasyti, dirbant su storagu - sukuria SYMLINKa
 			$path = str_replace('public', '/storage', $path);
-			// storage/dishes/****
-			// dd($path);
-			// $request->image_url = $path;
-			// Dish::create(\Input::all());
-			// // - vietoj to kad atskirai viska aprasineti:
 			$photo = new Photo();
 			$photo->title = $request->title;
 			$photo->description = $request->description;
