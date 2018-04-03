@@ -3,12 +3,13 @@
 	</div>
 	<div class="container w-75">
 		<a href="{{ route('tags.index') }}"><button class="btn btn-dark">Back</button></a>
-		<h2 class="text-center">Create Tag</h2>
-		<form action="{{ route('tags.store') }}" method="POST" class="needs-validation" enctype="multipart/form-data">
+		<h2 class="text-center">Update Tag</h2>
+		<form action="{{ route('tags.update', $tag->id) }}" method="POST" class="needs-validation">
 			@csrf
+			@method('PUT')
 			<div class="form-group">
 				<label class="px-3" for="title">Title: </label>
-				<input name="title" type="text" class="form-control px-3 @if($errors->has('title')) is-invalid @endif" id="title" placeholder="Enter title" value="{{ old('title') }}">
+				<input name="title" type="text" class="form-control px-3 @if($errors->has('title')) is-invalid @endif" id="title" placeholder="Enter title" value="{{ old('title', $tag->title) }}">
 				@if($errors->has('title'))
 				<div class="invalid-feedback px-3">
 					{{ $errors->first('title') }}

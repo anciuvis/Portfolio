@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="d-block mx-2 mb-2 w-100">
+<div class="d-block mx-3 mb-2 w-100">
 	<a href="{{ route('photos.index') }}"><button class="btn btn-dark">Back</button></a>
 </div>
 	<div class="container w-75">

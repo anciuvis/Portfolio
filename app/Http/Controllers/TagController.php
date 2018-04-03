@@ -14,12 +14,12 @@ class TagController extends Controller
      */
 
 		public function __construct() {
- 			$this->middleware('admin')->except('index', 'show');
+ 			$this->middleware('admin')->except('show');
  		}
 
     public function index()
     {
-      $tags = Tags::all();
+      $tags = Tag::all();
 			return view('tags', [
 				'tags' => $tags,
 			]);
@@ -55,6 +55,7 @@ class TagController extends Controller
 			$tag = new Tag();
 			$tag->title = $request->title;
 			$tag->save();
+			return redirect()->route('photos.index');
     }
 
     /**
@@ -76,7 +77,9 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+			return view('tag/edit', [
+				'tag' => $tag,
+			]);
     }
 
     /**
@@ -88,7 +91,10 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+			$this->validation($request);
+			$tag->title = $request->title;
+			$tag->save();
+			return redirect()->route('tags.index');
     }
 
     /**
@@ -99,6 +105,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+			$tag->delete();
+			return redirect()->route('tags.index');
     }
 }

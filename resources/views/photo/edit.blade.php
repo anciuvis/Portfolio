@@ -37,14 +37,12 @@
 					@endif
 				</div>
 				<div class="form-group">
-					<label class="px-3">Tags</label><span>Current Tags:</span>
-						@foreach($currenttags as $currenttag)
-						<span class="bagde badge-pill badge-secondary">{{ $currenttag[0]->title }}</span>
-						@endforeach
+					<label class="px-3">Tags</label>
+
 						@foreach($tags as $tag)
 						<div class="form-check">
-							<input name="tags[]" value="{{ $tag->id }}" type="checkbox" class="form-check-input" id="{{ $tag->id }}">
-							<label class="form-check-label" for="{{ $tag->id }}">{{ $tag->title }}</label>
+							<input @if($tag['selected']) checked @endif name="tags[]" value="{{ $tag['id'] }}" type="checkbox" class="form-check-input" id="{{ $tag['id'] }}">
+							<label class="form-check-label" for="{{ $tag['id'] }}">{{ $tag['title'] }}</label>
 						</div>
 						@endforeach
 				</div>

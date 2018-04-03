@@ -9,5 +9,23 @@
 			<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 				@csrf
 			</form>
+
+			@component('components/create', [
+				'name'	=> 'Add Photo',
+				'route'		=> 'photos.create',
+				'users'  => ['admin']
+			])
+			@endcomponent
+
+			@component('components/create', [
+				'name'	=> 'Create Tag',
+				'route'		=> 'tags.create',
+				'users'  => ['admin']
+			])
+			@endcomponent
+
+			<a href="{{ route('photos.index') }}" class="btn btn-outline-secondary" name="photolist">Photo List</a>
+			<a href="{{ route('tags.index') }}" class="btn btn-outline-secondary" name="taglist">Tag List</a>
+		</div>
 	@endauth
 @endif

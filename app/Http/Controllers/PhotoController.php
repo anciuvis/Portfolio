@@ -117,15 +117,25 @@ class PhotoController extends Controller
     {
 			$tags = Tag::all();
 
-			$photostags = Photostag::where('photo_id', $photo->id)->get();
-			$currenttags = [];
-			foreach ($photostags as $photostag) {
-				$currenttags[] = Tag::where('id', $photostag->tag_id)->get();
-			}
+			$photostags = Photostag::where('photo_id', $photo->id)->get()->toArray();
+
+			$currenttags = array_column($photostags, 'tag_id');
+
+			$custom_tags = array_map(function($tag) use($currenttags) {
+				return [
+					'id' => $tag['id'],
+					'title' => $tag['title'],
+					'selected' => in_array($tag['id'], $currenttags),
+				];
+			}, $tags->toArray());
+
+			//foreach ($photostags as $photostag) {
+				//$currenttags[] = Tag::where('id', $photostag->tag_id)->get();
+			//}
 			return view('photo/edit', [
 				'photo' => $photo,
-				'currenttags' => $currenttags,
-				'tags' => $tags,
+				//'currenttags' => $currenttags,
+				'tags' => $custom_tags,
 			]);
     }
 
@@ -169,17 +179,26 @@ class PhotoController extends Controller
 			$photo->save();
 
 			foreach ($request->tags as $id) {
+				$tag_exists = Photostag::where('tag_id', $id)->where('photo_id', $photo->id)->exists();
+				if($tag_exists) continue;
+
 				$phototag = new Photostag();
 				$phototag->tag_id = $id;
 				$phototag->photo_id = $photo->id;
 				$phototag->save();
 			}
 
-			$tags = Tag::all();
-			return view('photo/edit', [
-				'photo' => $photo,
-				'tags' => $tags,
-			]);
+			$photostags = Photostag::where('photo_id', $photo->id)->get();
+			// dd($photostags);
+			foreach ($photostags as $photostag) {
+				if (!in_array($photostag->tag_id, $request->tags)) {
+				$photostag->delete();
+				}
+			}
+
+			// $tags = Tag::all();
+
+			return redirect()->route('photos.edit', ['photo' => $photo]);
     }
 
     /**
@@ -190,6 +209,7 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        //
+			$photo->delete();
+			return redirect()->route('photos.index');
     }
 }

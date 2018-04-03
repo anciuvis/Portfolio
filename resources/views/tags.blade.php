@@ -1,33 +1,44 @@
-@extends('layouts.app') <!-- cia lygu layouts/app - kelias iki failo is esmes, tastas lygu slashui -->
+@extends('layouts.app')
 @section('content')
 
-	@Auth
-
-	<!-- VIEW FOR ADMINISTRATOR -->
-
-		@component('components/create', [
-			'name'	=> 'Add Photo',
-			'route'		=> 'photos.create',
-			'users'  => ['admin']
-		])
-		@endcomponent
-
-		@component('components/create', [
-			'name'	=> 'Create Tag',
-			'route'		=> 'tags.create',
-			'users'  => ['admin']
-		])
-		@endcomponent
-
-		</div>
-			<div class="container">
-				<section>
-					<div class="row justify-content-center ml-0">
-							@foreach($tags as $tag)
-
-							@endforeach
-					</div>
-				</section>
-			</div>
-		@else
+	<div class="container">
+		<section>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Tag</th>
+						<th scope="col">Edit</th>
+						<th scope="col">Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+						@foreach($tags as $tag)
+						<tr>
+							<td>
+								{{ $tag->title }}
+							</td>
+							<td>
+								@component('components/edit', [
+								'id' 		=> $tag->id,
+								'name'	=> 'Edit',
+								'route'		=> 'tags.edit',
+								'users'  => ['admin']
+								])
+								@endcomponent
+							</td>
+							<td>
+								@component('components/delete', [
+								'id' 		=> $tag->id,
+								'name'	=> 'Delete',
+								'route'		=> 'tags.destroy',
+								'users'  => ['admin']
+								])
+								@endcomponent
+							</td>
+						</tr>
+						@endforeach
+				</tbody>
+			</table>
+		</section>
+	</div>
 @endsection

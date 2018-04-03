@@ -5,20 +5,6 @@
 
 	<!-- VIEW FOR ADMINISTRATOR -->
 
-		@component('components/create', [
-			'name'	=> 'Add Photo',
-			'route'		=> 'photos.create',
-			'users'  => ['admin']
-		])
-		@endcomponent
-
-		@component('components/create', [
-			'name'	=> 'Create Tag',
-			'route'		=> 'tags.create',
-			'users'  => ['admin']
-		])
-		@endcomponent
-
 		</div>
 			<div class="container">
 				<section>
@@ -34,7 +20,8 @@
 					</div>
 				</section>
 			</div>
-		@else
+
+	@else
 
 		<!-- VIEW FOR THE GUESTS -->
 
