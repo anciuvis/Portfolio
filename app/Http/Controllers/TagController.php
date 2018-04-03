@@ -12,9 +12,17 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+		public function __construct() {
+ 			$this->middleware('admin')->except('index', 'show');
+ 		}
+
     public function index()
     {
-        //
+      $tags = Tags::all();
+			return view('tags', [
+				'tags' => $tags,
+			]);
     }
 
     /**
@@ -24,7 +32,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+			return view('tag/create');
     }
 
     /**
@@ -33,9 +41,20 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+		 private function validation(Request $request) {
+			$request->validate([
+				'title' 				=> 'required|max:300',
+			], [
+				'title.required' 				=> 'Antrastes laukelis yra privalomas',
+			]);
+			}
+
     public function store(Request $request)
     {
-        //
+			$this->validation($request);
+			$tag = new Tag();
+			$tag->title = $request->title;
+			$tag->save();
     }
 
     /**

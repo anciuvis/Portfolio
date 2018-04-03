@@ -19,7 +19,7 @@
 					</div>
 					<div class="col-sm-6 col-md-4 p-0 cube colorcube d-none d-sm-block">
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-4 cube introcube d-flex align-items-center text-left p-3">
+					<div class="col-xs-12 col-sm-6 col-md-4 cube introcube d-none d-sm-flex align-items-center text-left p-3">
 						Hello! <br />
 						I am Anna Yasyreva and this is my portfolio website
 					</div>

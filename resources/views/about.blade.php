@@ -6,13 +6,13 @@
 	<div class="content-wrapper p-0">
 		<section class="row m-0 h-100 w-100 about">
 			<div class="col-xs-12 col-md-4 pl-0 pl-md-3 pb-0 pb-md-3 pr-0 about-photo" >
-				<div class=" h-100 p-0 p-md-3 pl-3 d-flex flex-column align-items-start " id="gradient">
+				<div class="h-100 p-0 p-md-3 pl-3 d-flex flex-column align-items-start" id="gradient">
 					<div class="d-flex flex-column flex-lg-row justify-content-between">
 						<span class="py-3 px-1 mt-3">ABOUT ME</span>
 						<img src="myphoto.jpg" class="w-50 h-50 float-right float-md-none img-fluid" alt="my photo">
 					</div>
 					<div class="">
-						<a href="{{ route('home') }}" class="btn btn-outline-dark p-3 p-md-2 m-2"><<</a>
+						<a href="{{ route('home') }}" class="btn btn-outline-dark p-3 p-md-2 my-2">&#8920;Back</a>
 					</div>
 				</div>
 			</div>

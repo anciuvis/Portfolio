@@ -13,6 +13,8 @@ body {
     position: absolute;
     left: 0px;
     right: 0px;
+		bottom: 0px;
+		top: 0px;
 		height: 100%;
 }
 
@@ -444,10 +446,12 @@ color: rgb(0, 0, 0);
 
 .carousel-inner {
 	overflow: visible;
+	font-family: 'Crimson Text', serif;
+	font-size: 1.2rem;
 }
 
 .carousel-item {
-	max-width: 775px;
+	max-width: 1366px;
 	height: 500px;
 }
 
@@ -458,6 +462,19 @@ color: rgb(0, 0, 0);
 
 .carousel-caption {
 	position: relative;
-	top: 100px;
+	top: 25px;
+	left: 0px;
+}
 
+.contacts {
+	font-family: 'Crimson Text', serif;
+	font-size: 1.2rem;
+}
+
+.cornered {
+	border-radius: 0px 50px 50px 0px;
+	background-color: rgb(218, 218, 218);
+	border-top: 3px dashed rgba(133,126,140,0.75);
+	border-right: 3px dashed rgba(133,126,140,0.75);
+	border-bottom: 3px dashed rgba(133,126,140,0.75);
 }

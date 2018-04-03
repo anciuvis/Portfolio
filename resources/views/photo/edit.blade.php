@@ -3,9 +3,9 @@
 	<body>
 		<div class="container w-75">
 			<div class="mb-3">
-				<a href="{{ route('photos.index') }}"><button class="btn btn-warning">Back</button></a>
+				<a href="{{ route('photos.index') }}" class="btn btn-outline-dark p-3 p-md-2 my-2">&#8920;Back</a>
 			</div>
-			<h2 class="text-center">Update Photo form</h2>
+			<h2 class="text-center">Update Photo</h2>
 			<form action="{{ route('photos.update', $photo->id) }}" method="POST" class="needs-validation" enctype="multipart/form-data">
 				@csrf
 				@method('PUT')
@@ -37,7 +37,10 @@
 					@endif
 				</div>
 				<div class="form-group">
-					<label class="px-3">Tags</label>
+					<label class="px-3">Tags</label><span>Current Tags:</span>
+						@foreach($currenttags as $currenttag)
+						<span class="bagde badge-pill badge-secondary">{{ $currenttag[0]->title }}</span>
+						@endforeach
 						@foreach($tags as $tag)
 						<div class="form-check">
 							<input name="tags[]" value="{{ $tag->id }}" type="checkbox" class="form-check-input" id="{{ $tag->id }}">

@@ -38,8 +38,12 @@
 
 		<!-- VIEW FOR THE GUESTS -->
 
-		<div class="container w-75 mx-auto">
-			<div id="carouselExampleControls" class="carousel slide w-100 my-auto mx-auto" data-ride="carousel" >
+		<div class="container w-100 d-flex justify-content-center flex-column">
+			<div class="d-flex flex-row justify-content-between">
+				<a href="{{ route('home') }}" class="btn btn-outline-dark p-3 my-2">&#8920; Back</a>
+				<h1 class="my-auto ml-auto">Photos</h1>
+			</div>
+			<div id="carouselExampleControls" class="carousel slide w-100 mt-3 mt-md-0 mx-auto" data-ride="carousel" data-pause="hover">
 			  <div class="carousel-inner mx-auto">
 					@foreach($photos as $photo)
 				    <div class="carousel-item @if ($loop->first) active @endif captiongradient my-auto">
@@ -50,9 +54,9 @@
 								<h6 class="mb-2 tags">
 									@foreach($photos_tags[$photo->id] as $tag)
 										@if ($loop->first)
-											<span class="bagde badge-pill badge-secondary">{{ $tag[0]->title }}</span>
+											<span class="bagde badge-pill badge-secondary">#{{ $tag[0]->title }}</span>
 										@else
-											, <span class="bagde badge-pill badge-secondary">{{ $tag[0]->title }}</span>
+											, <span class="bagde badge-pill badge-secondary">#{{ $tag[0]->title }}</span>
 										@endif
 								@endforeach
 							</h6>
@@ -61,11 +65,11 @@
 					@endforeach
 			  </div>
 			  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="carousel-control-prev-icon d-none" aria-hidden="true"></span>
 			    <span class="sr-only">Previous</span>
 			  </a>
 			  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="carousel-control-next-icon d-none" aria-hidden="true"></span>
 			    <span class="sr-only">Next</span>
 			  </a>
 			</div>

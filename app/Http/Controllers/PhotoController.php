@@ -90,7 +90,7 @@ class PhotoController extends Controller
 				$phototag->photo_id = $photo->id;
 				$phototag->save();
 			}
-			return redirect()->route('home');
+			return redirect()->route('photos.index');
     }
 
     /**
@@ -116,8 +116,15 @@ class PhotoController extends Controller
     public function edit(Photo $photo)
     {
 			$tags = Tag::all();
+
+			$photostags = Photostag::where('photo_id', $photo->id)->get();
+			$currenttags = [];
+			foreach ($photostags as $photostag) {
+				$currenttags[] = Tag::where('id', $photostag->tag_id)->get();
+			}
 			return view('photo/edit', [
 				'photo' => $photo,
+				'currenttags' => $currenttags,
 				'tags' => $tags,
 			]);
     }

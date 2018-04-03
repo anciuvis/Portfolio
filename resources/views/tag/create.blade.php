@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
-<div class="d-block mx-2 mb-2 w-100">
-	<a href="{{ route('tags.index') }}"><button class="btn btn-dark">Back</button></a>
-</div>
+@Auth
+	</div>
+@endif
 	<div class="container w-75">
+		<a href="{{ route('tags.index') }}"><button class="btn btn-dark">Back</button></a>
 		<h2 class="text-center">Create Tag</h2>
 		<form action="{{ route('tags.store') }}" method="POST" class="needs-validation" enctype="multipart/form-data">
 			@csrf
