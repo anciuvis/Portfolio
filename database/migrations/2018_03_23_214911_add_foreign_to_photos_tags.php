@@ -14,8 +14,8 @@ class AddForeignToPhotosTags extends Migration
 		 public function up()
 		 {
 		 	Schema::table('photos_tags', function (Blueprint $table) {
-		 		$table->foreign('photo_id')->references('id')->on('photos');
-		 		$table->foreign('tag_id')->references('id')->on('tags');
+		 		$table->foreign('photo_id')->references('id')->on('photos')->onDelete('cascade');
+		 		$table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
 		 	});
 		 }
 
