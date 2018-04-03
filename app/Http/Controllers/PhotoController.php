@@ -101,10 +101,7 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-			$photo = Photo::findOrFail($request->id);
-			return view('photo/show', [
-				'photo' => $photo,
-			]);
+			return redirect()->route('photos.index');
     }
 
     /**

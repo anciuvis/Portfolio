@@ -5,29 +5,46 @@
 	</div>
 @endif
 		<div class="wrapper">
-			<div class="content-wrapper p-3">
+			<div class="content-wrapper p-0 p-sm-3">
 				<section class="cubes row m-0">
-					<div class="col-xs-12 col-sm-6 col-md-4 cube homecube d-flex align-items-center justify-content-center p-3">
+					<div class="d-none d-sm-flex col-sm-6 col-md-4 cube homecube align-items-center justify-content-center p-3">
 						<a href="/">The portfolio</a>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-4 cube aboutcube d-flex align-items-center justify-content-center p-3">
+					<div class="d-flex d-sm-none align-items-center justify-content-center p-1 mx-auto">
+						<a href="/">Anya's portfolio</a>
+					</div>
+					<div class="d-none d-sm-flex col-sm-6 col-md-4 cube aboutcube align-items-center justify-content-center p-3">
 						<a href="{{ route('about') }}" class="">
 							<i class="fas fa-user-circle fa-2x p-3 scale hvr-back-pulse p-3"></i>
 							<br />
 							ABOUT ME
 						</a>
 					</div>
+					<div class="d-flex d-sm-none aboutcube p-0 w-100 m-0">
+						<a href="{{ route('about') }}" class="p-2 w-100">
+							<i class="fas fa-user-circle fa-2x p-3 scale hvr-back-pulse p-3 m-0"></i>
+							<br />
+							ABOUT ME
+						</a>
+					</div>
 					<div class="col-sm-6 col-md-4 p-0 cube colorcube d-none d-sm-block">
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-4 cube introcube d-none d-sm-flex align-items-center text-left p-3">
+					<div class="d-none d-sm-flex col-sm-6 col-md-4 cube introcube align-items-center text-left p-3">
 						Hello! <br />
 						I am Anna Yasyreva and this is my portfolio website
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-4 p-0 cube photocube d-flex align-items-center justify-content-center p-3">
+					<div class="d-none d-sm-flex col-sm-6 col-md-4 cube photocube align-items-center justify-content-center p-3">
 						<a href="{{ route('photos.index') }}" class="d-flex flex-column justify-content-between">
 							<i class="fas fa-camera-retro fa-2x hvr-buzz-out p-3"></i>
 							<br />
 								My Photos
+						</a>
+					</div>
+					<div class="d-flex d-sm-none photocube p-0 w-100 m-0">
+						<a href="{{ route('photos.index') }}" class="p-2 w-100">
+							<i class="fas fa-camera-retro fa-2x hvr-buzz-out p-3 m-0"></i>
+							<br />
+							My Photos
 						</a>
 					</div>
 					<div class="col-sm-6 col-md-4 p-0 cube d-none d-sm-block">
@@ -35,9 +52,16 @@
 					</div>
 					<div class="col-md-4 p-0 cube colorcube d-none d-md-block">
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-4 cube contactcube d-flex flex-column justify-content-around p-3">
+					<div class="d-none d-sm-flex col-sm-6 col-md-4 cube contactcube flex-column justify-content-around p-3">
 						<a href="{{ route('contact') }}" class="d-flex flex-column justify-content-between">
 							<i class="fas fa-paper-plane fa-2x hvr-bob p-3"></i>
+							<br />
+							Contacts
+						</a>
+					</div>
+					<div class="d-flex d-sm-none contactcube p-0 w-100 m-0">
+						<a href="{{ route('contact') }}" class="p-2 w-100">
+							<i class="fas fa-paper-plane fa-2x hvr-bob p-3 m-0"></i>
 							<br />
 							Contacts
 						</a>

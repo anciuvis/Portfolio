@@ -37,7 +37,7 @@
 			<div id="carouselExampleControls" class="carousel slide w-100 mt-3 mt-md-0 mx-auto" data-ride="carousel" data-pause="hover">
 			  <div class="carousel-inner mx-auto">
 					@foreach($photos as $photo)
-				    <div class="carousel-item @if ($loop->first) active @endif captiongradient my-auto">
+				    <div class="carousel-item @if ($loop->first) active @endif my-auto">
 				      <img class="d-block mx-auto my-auto" src="{{ $photo->img_url }}" alt="{{ $photo->title }}">
 							<div class="carousel-caption d-flex flex-column justify-content-center captiongradient mx-auto">
 								<h5 class="mb-2">{{ $photo->title }}</h5>
@@ -45,9 +45,13 @@
 								<h6 class="mb-2 tags">
 									@foreach($photos_tags[$photo->id] as $tag)
 										@if ($loop->first)
-											<span class="bagde badge-pill badge-secondary">#{{ $tag[0]->title }}</span>
+											<a href="{{ route('tag.show', $tag->id)}}">
+												<span class="bagde badge-pill badge-secondary">#{{ $tag[0]->title }}</span>
+											</a>
 										@else
-											, <span class="bagde badge-pill badge-secondary">#{{ $tag[0]->title }}</span>
+											, <a href="{{ route('tag.show', $tag->id)}}">
+												<span class="bagde badge-pill badge-secondary">#{{ $tag[0]->title }}</span>
+											</a>
 										@endif
 								@endforeach
 							</h6>
