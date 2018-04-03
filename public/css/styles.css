@@ -462,7 +462,7 @@ color: rgb(0, 0, 0);
 
 .carousel-caption {
 	position: relative;
-	top: 25px;
+	top: -10px;
 	left: 0px;
 }
 

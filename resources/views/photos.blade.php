@@ -30,6 +30,10 @@
 				<a href="{{ route('home') }}" class="btn btn-outline-dark p-3 my-2">&#8920; Back</a>
 				<h1 class="my-auto ml-auto">Photos</h1>
 			</div>
+			<div class="mx-auto">
+				All photos are shot on 35mm films - Agfa Vista 200/400 or Fujicolor Superia 200/400<br/>
+				With Contax 167MT Zeiss Planar 1.7/50 or Smena 8M 4/40 lomo camera
+			</div>
 			<div id="carouselExampleControls" class="carousel slide w-100 mt-3 mt-md-0 mx-auto" data-ride="carousel" data-pause="hover">
 			  <div class="carousel-inner mx-auto">
 					@foreach($photos as $photo)
