@@ -21,8 +21,18 @@ class PhotoController extends Controller
     public function index()
     {
 			$photos = Photo::all();
+			$tags = [];
+			foreach ($photos as $photo) {
+				$photostags = Photostag::where('photo_id', $photo->id)->get();
+				$tags[$photo->id] = [];
+				foreach ($photostags as $photostag) {
+					$tags[$photo->id][] = Tag::where('id', $photostag->tag_id)->get();
+				}
+			}
+			// dd($tags);
 			return view('photos', [
 				'photos' => $photos,
+				'photos_tags' => $tags,
 			]);
     }
 

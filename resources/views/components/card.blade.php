@@ -1,13 +1,22 @@
 <div class="col-md-12 col-lg-4 mb-3">
 	<ul class="list-group ">
-		<li class="list-group-item list-group-item-success">{{ $photo->title }}</li>
+		<li class="list-group-item list-group-item-dark">{{ $photo->title }}</li>
 		<li class="list-group-item">
-			<a href="@if ($single){{'#'}}@else{{ route('photos.show', $photo->id) }}@endif">
-				<img style="max-height: 170px;" src="@if ($single){{'../'}}@endif{{ $photo->img_url }}" class="mx-auto img-fluid my-1" alt="picture" />
-			</a>
+
+				<img style="max-height: 170px;" src="@if ($single){{'../'}}@endif{{ $photo->img_url }}" class="mx-auto img-fluid my-1 d-block" alt="picture" />
+
 		</li>
 		<li class="list-group-item" style="height: 90px;">
 			@if ($single) {{ $photo->description }} @else {{ str_limit($photo->description, 90) }} @endif
+		</li>
+		<li class="list-group-item">
+			@foreach($photos_tags[$photo->id] as $tag)
+				@if ($loop->first)
+				{{ $tag[0]->title }}
+				@else
+				, {{ $tag[0]->title }}
+				@endif
+			@endforeach
 		</li>
 	</ul>
 	<div class="d-flex">

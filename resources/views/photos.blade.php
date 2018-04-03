@@ -21,15 +21,14 @@
 			<div class="container">
 				<section>
 					<div class="row justify-content-center ml-0">
-
 							@foreach($photos as $photo)
 								@component('components/card', [
 								'photo'		=> $photo,
+								'photos_tags' => $photos_tags,
 								'single' 	=> FALSE,
 								])
 								@endcomponent
 							@endforeach
-
 					</div>
 				</section>
 			</div>
@@ -47,7 +46,7 @@
 							</div>
 				    </div>
 					@endforeach
-					
+
 					<span></span>
 			  </div>
 			  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
