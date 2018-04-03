@@ -3,6 +3,8 @@
 
 	@Auth
 
+	<!-- VIEW FOR ADMINISTRATOR -->
+
 		@component('components/create', [
 			'name'	=> 'Add Photo',
 			'route'		=> 'photos.create',
@@ -33,21 +35,30 @@
 				</section>
 			</div>
 		@else
-		<div class="container w-75">
-			<div id="carouselExampleControls" class="carousel slide w-100" data-ride="carousel" >
-			  <div class="carousel-inner">
 
+		<!-- VIEW FOR THE GUESTS -->
+
+		<div class="container w-75 mx-auto">
+			<div id="carouselExampleControls" class="carousel slide w-100 my-auto mx-auto" data-ride="carousel" >
+			  <div class="carousel-inner mx-auto">
 					@foreach($photos as $photo)
-				    <div class="carousel-item @if ($loop->first) active @endif captiongradient" style="height: 500px; width:775px;">
-				      <img class="d-block h-100 mx-auto" src="{{ $photo->img_url }}" alt="{{ $photo->title }}">
-							<div class="carousel-caption d-none d-md-flex flex-column justify-content-center captiongradient">
-								<h5 class="mb-0">{{ $photo->title }}</h5>
-								<p class="mb-0">{{ $photo->description }}</p>
+				    <div class="carousel-item @if ($loop->first) active @endif captiongradient my-auto">
+				      <img class="d-block mx-auto my-auto" src="{{ $photo->img_url }}" alt="{{ $photo->title }}">
+							<div class="carousel-caption d-flex flex-column justify-content-center captiongradient mx-auto">
+								<h5 class="mb-2">{{ $photo->title }}</h5>
+								<p class="mb-2">{{ $photo->description }}</p>
+								<h6 class="mb-2 tags">
+									@foreach($photos_tags[$photo->id] as $tag)
+										@if ($loop->first)
+											<span class="bagde badge-pill badge-secondary">{{ $tag[0]->title }}</span>
+										@else
+											, <span class="bagde badge-pill badge-secondary">{{ $tag[0]->title }}</span>
+										@endif
+								@endforeach
+							</h6>
 							</div>
 				    </div>
 					@endforeach
-
-					<span></span>
 			  </div>
 			  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
 			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
