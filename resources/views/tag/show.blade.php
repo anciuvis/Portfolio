@@ -1,75 +1,50 @@
 @extends('layouts.app') <!-- cia lygu layouts/app - kelias iki failo is esmes, tastas lygu slashui -->
 @section('content')
 
-	@Auth
+@Auth
+<!-- VIEW FOR ADMINISTRATOR -->
 
-	<!-- VIEW FOR ADMINISTRATOR -->
-
-		</div>
-			<div class="container">
-				<section>
-					<div class="row justify-content-center ml-0">
-							@foreach($photos as $photo)
-								@component('components/card', [
-								'photo'		=> $photo,
-								'photos_tags' => $photos_tags,
-								'single' 	=> FALSE,
-								])
-								@endcomponent
-							@endforeach
-					</div>
-				</section>
-			</div>
-
-	@else
-
-		<!-- VIEW FOR THE GUESTS -->
-
+		@else
 		<div class="container w-100 d-flex justify-content-center flex-column">
 			<div class="d-flex flex-row justify-content-between">
-				<a href="{{ route('home') }}" class="btn btn-outline-dark p-3 my-2">&#8920; Back</a>
-				<h1 class="my-auto ml-auto">Photos</h1>
-			</div>
-			<div class="mx-auto">
-				All photos are shot on 35mm films - Agfa Vista 200/400 or Fujicolor Superia 200/400<br/>
-				With Contax 167MT Zeiss Planar 1.7/50 or Smena 8M 4/40 lomo camera
+				<a href="{{ route('photos.index') }}" class="btn btn-outline-dark p-3 my-2">Show all photos</a>
+				<h4 class="my-auto ml-auto">All photos with <span class="bagde badge-pill badge-secondary">{{ $currenttag->title }}</span> tag</h4>
 			</div>
 			<div id="carouselExampleControls" class="carousel slide w-100 mt-3 mt-md-0 mx-auto" data-ride="carousel" data-pause="hover">
-			  <div class="carousel-inner mx-auto">
+				<div class="carousel-inner mx-auto">
 					@foreach($photos as $photo)
-				    <div class="carousel-item @if ($loop->first) active @endif my-auto">
-				      <img class="d-block mx-auto my-auto" src="{{ $photo->img_url }}" alt="{{ $photo->title }}">
+						<div class="carousel-item @if ($loop->first) active @endif my-auto">
+							<img class="d-block mx-auto my-auto" src="{{ $photo['img_url'] }}" alt="{{ $photo['title'] }}">
 							<div class="carousel-caption d-flex flex-column justify-content-center captiongradient mx-auto">
-								<h5 class="mb-2">{{ $photo->title }}</h5>
-								<p class="mb-2">{{ $photo->description }}</p>
+								<h5 class="mb-2">{{ $photo['title'] }}</h5>
+								<p class="mb-2">{{ $photo['description'] }}</p>
 								<h6 class="mb-2 tags">
-									@foreach($photos_tags[$photo->id] as $tag)
+									@foreach($photo['tags'] as $tag)
 										@if ($loop->first)
-											<a href="{{ route('tags.show', $tag[0]->id)}}">
-												<span class="bagde badge-pill badge-secondary">#{{ $tag[0]->title }}</span>
+											<a href="{{ route('tags.show', $tags[$tag])}}">
+												<span class="bagde badge-pill badge-secondary">#{{ $tags[$tag]['title'] }}</span>
 											</a>
 										@else
-											, <a href="{{ route('tags.show', $tag[0]->id)}}">
-												<span class="bagde badge-pill badge-secondary">#{{ $tag[0]->title }}</span>
+											, <a href="{{ route('tags.show', $tags[$tag])}}">
+												<span class="bagde badge-pill badge-secondary">#{{ $tags[$tag]['title'] }}</span>
 											</a>
 										@endif
 								@endforeach
 							</h6>
 							</div>
-				    </div>
+						</div>
 					@endforeach
-			  </div>
-			  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-			    <span class="carousel-control-prev-icon d-none" aria-hidden="true"></span>
-			    <span class="sr-only">Previous</span>
-			  </a>
-			  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-			    <span class="carousel-control-next-icon d-none" aria-hidden="true"></span>
-			    <span class="sr-only">Next</span>
-			  </a>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon d-none" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+					<span class="carousel-control-next-icon d-none" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
 			</div>
 		</div>
-
 		<!-- Scripts -->
 		<script src="{{ asset('js/app.js') }}"></script>
 		<script src="{{ asset('js/jquery.min.js') }}"></script>

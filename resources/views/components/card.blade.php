@@ -12,9 +12,13 @@
 		<li class="list-group-item">
 			@foreach($photos_tags[$photo->id] as $tag)
 				@if ($loop->first)
-				{{ $tag[0]->title }}
+				<a href="{{ route('tags.show', $tag[0]->id)}}">
+					<span class="bagde badge-pill badge-secondary">{{ $tag[0]->title }}</span>
+				</a>
 				@else
-				, {{ $tag[0]->title }}
+				, <a href="{{ route('tags.show', $tag[0]->id)}}">
+					<span class="bagde badge-pill badge-secondary">{{ $tag[0]->title }}</span>
+				</a>
 				@endif
 			@endforeach
 		</li>

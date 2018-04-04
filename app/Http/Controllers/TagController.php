@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
+use App\Photo;
+use App\PhotosTag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -66,9 +68,28 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
+			$tags = Tag::all()->keyBy('id');
+			$photos = $photo_ids = $tags_ids = [];
+			$photostags = Photostag::where('tag_id', $tag->id)->get();
+			//$photos[$tag->id] = [];
+			foreach ($photostags as $photostag) {
+				$photo_ids[] = $photostag->photo_id;
+			}
+
+			$photos = Photo::whereIn('id', $photo_ids)->get()->keyBy('id')->toArray();
+			$all_photostags = Photostag::whereIn('photo_id', $photo_ids)->get()->toArray();
+
+			foreach ($all_photostags as $p_tag) {
+				$photos[$p_tag['photo_id']]['tags'][] = $p_tag['tag_id'];
+			}
+
+			// dd($photos);
+
 
 			return view('tag/show', [
-				'tag' => $tag,
+				'tags' => $tags,
+				'photos' => $photos,
+				'currenttag' => $tag,
 			]);
     }
 
