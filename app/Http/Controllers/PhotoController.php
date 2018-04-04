@@ -71,17 +71,13 @@ class PhotoController extends Controller
     public function store(Request $request)
     {
 			$this->validation($request);
-			// i storage/app ikelia default, tolimesni kelia rnurodome
 			$path = $request->file('img_url')->store('public/photos');
-			// public/dishes/*****
-			// reikia dar php artisan storage:link irasyti, dirbant su storagu - sukuria SYMLINKa
 			$path = str_replace('public', '/storage', $path);
 
 			$photo = new Photo();
 			$photo->title = $request->title;
 			$photo->description = $request->description;
 			$photo->img_url = $path;
-			// $request->image_url pakeisti i $path kad butu failo ikelimas i duombaze
 			$photo->save();
 
 			foreach ($request->tags as $id) {
