@@ -59,6 +59,7 @@ class PhotoController extends Controller
 				'title.required' 				=> 'Antrastes laukelis yra privalomas',
 				'description.required' 	=> 'Aprasymo laukelis yra privalomas',
 				'img_url.required' 		=> 'Nuotrauka yra privaloma',
+				'img_url.mimes' 		=> 'Turi buti jpeg arba bmp arba png',
 			]);
 		}
 

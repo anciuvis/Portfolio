@@ -19,7 +19,7 @@
 			<div class="form-group">
 				<label class="px-3" for="img_url">Image: </label>
 				<input name="img_url" type="file" class="form-control px-3 @if($errors->has('img_url')) is-invalid @endif" id="img_url" placeholder="Enter image source" value="{{ old('img_url') }}">
-				@if($errors->has('image_url'))
+				@if($errors->has('img_url'))
 				<div class="invalid-feedback px-3">
 					{{ $errors->first('img_url') }}
 				</div>
