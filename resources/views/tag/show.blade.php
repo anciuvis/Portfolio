@@ -1,10 +1,6 @@
 @extends('layouts.app') <!-- cia lygu layouts/app - kelias iki failo is esmes, tastas lygu slashui -->
 @section('content')
 
-@Auth
-<!-- VIEW FOR ADMINISTRATOR -->
-
-		@else
 		<div class="container w-100 d-flex justify-content-center flex-column">
 			<div class="d-flex flex-row justify-content-between">
 				<a href="{{ route('photos.index') }}" class="btn btn-outline-dark p-3 my-2">Show all photos</a>
@@ -77,6 +73,5 @@
 				}
 			}
 		</script>
-	@endif
 
 @endsection
