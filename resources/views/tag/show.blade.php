@@ -1,4 +1,4 @@
-@extends('layouts.app') <!-- cia lygu layouts/app - kelias iki failo is esmes, tastas lygu slashui -->
+@extends('layouts.app')
 @section('content')
 
 		<div class="container w-100 d-flex justify-content-center flex-column">
