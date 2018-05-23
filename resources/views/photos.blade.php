@@ -12,7 +12,6 @@
 							@foreach($photos as $photo)
 								@component('components/card', [
 								'photo'		=> $photo,
-								'photos_tags' => $photos_tags,
 								'single' 	=> FALSE,
 								])
 								@endcomponent

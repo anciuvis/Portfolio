@@ -10,14 +10,14 @@
 			@if ($single) {{ $photo->description }} @else {{ str_limit($photo->description, 90) }} @endif
 		</li>
 		<li class="list-group-item">
-			@foreach($photos_tags[$photo->id] as $tag)
+			@foreach($photo->tags as $tag)
 				@if ($loop->first)
-				<a href="{{ route('tags.show', $tag[0]->id)}}">
-					<span class="bagde badge-pill badge-secondary">{{ $tag[0]->title }}</span>
+				<a href="{{ route('tags.show', $tag->id)}}">
+					<span class="bagde badge-pill badge-secondary">{{ $tag->title }}</span>
 				</a>
 				@else
-				, <a href="{{ route('tags.show', $tag[0]->id)}}">
-					<span class="bagde badge-pill badge-secondary">{{ $tag[0]->title }}</span>
+				, <a href="{{ route('tags.show', $tag->id)}}">
+					<span class="bagde badge-pill badge-secondary">{{ $tag->title }}</span>
 				</a>
 				@endif
 			@endforeach
