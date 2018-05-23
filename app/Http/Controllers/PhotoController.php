@@ -20,19 +20,10 @@ class PhotoController extends Controller
      */
     public function index()
     {
-			$photos = Photo::all();
-			$tags = [];
-			foreach ($photos as $photo) {
-				$photostags = Photostag::where('photo_id', $photo->id)->get();
-				$tags[$photo->id] = [];
-				foreach ($photostags as $photostag) {
-					$tags[$photo->id][] = Tag::where('id', $photostag->tag_id)->get();
-				}
-			}
-			// dd($tags);
+			$photos = Photo::with('tags')->get();
+
 			return view('photos', [
-				'photos' => $photos,
-				'photos_tags' => $tags,
+				'photos' => $photos
 			]);
     }
 
@@ -44,6 +35,7 @@ class PhotoController extends Controller
     public function create()
     {
 			$tags = Tag::all();
+
       return view('photo/create', [
 				'tags' => $tags,
 			]);
@@ -87,6 +79,8 @@ class PhotoController extends Controller
 				$phototag->photo_id = $photo->id;
 				$phototag->save();
 			}
+			// $photo->tags()->sync($request->tags);
+
 			return redirect()->route('photos.index');
     }
 
@@ -148,7 +142,6 @@ class PhotoController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
-			// $photo = Photo::find($request->id); // sito reikia jeigu web.php routuose nurodyta su {id} - kitaip {dish} ir veiks su Dish $dish
 			$rules = [
 				'title'  => 'required|min:3',
 				'description' => 'required',
@@ -171,27 +164,7 @@ class PhotoController extends Controller
 			$photo->img_url = $path;
 			$photo->description = $request->description;
 			$photo->save();
-
-			foreach ($request->tags as $id) {
-				$tag_exists = Photostag::where('tag_id', $id)->where('photo_id', $photo->id)->exists();
-				if($tag_exists) continue;
-
-				$phototag = new Photostag();
-				$phototag->tag_id = $id;
-				$phototag->photo_id = $photo->id;
-				$phototag->save();
-			}
-
-			$photostags = Photostag::where('photo_id', $photo->id)->get();
-			// dd($photostags);
-			foreach ($photostags as $photostag) {
-				if (!in_array($photostag->tag_id, $request->tags)) {
-				$photostag->delete();
-				}
-			}
-
-			// $tags = Tag::all();
-
+			$photo->tags()->sync($request->tags);
 			return redirect()->route('photos.edit', ['photo' => $photo]);
     }
 
@@ -203,6 +176,7 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
+			// $this->imageDelete($photo->img_url);
 			$photo->delete();
 			return redirect()->route('photos.index');
     }
